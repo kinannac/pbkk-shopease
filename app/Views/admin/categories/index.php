@@ -1,52 +1,48 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Manajemen Kategori</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    
-    <nav class="navbar navbar-dark bg-dark mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="/">⚙️ ShopEase Admin</a>
-            <a class="btn btn-outline-light btn-sm" href="/">Kembali ke Toko</a>
-        </div>
-    </nav>
+<?= $this->extend('admin/layout/template') ?>
 
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="mb-0">Manajemen Kategori</h2>
-            <a href="/admin/categories/create" class="btn btn-primary">+ Tambah Kategori</a>
-        </div>
+<?= $this->section('content') ?>
 
-        <div class="card shadow-sm">
-            <div class="card-body p-0">
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold" style="color: #165823;">Manajemen Kategori</h2>
+        <a href="/admin/categories/create" class="btn btn-primary shadow-sm fw-bold px-4">+ Tambah Kategori</a>
+    </div>
+
+    <div class="card glass-card border-0 overflow-hidden">
+        <div class="card-body p-0">
+            <div class="table-responsive">
                 <table class="table table-striped table-hover mb-0">
-                    <thead class="table-dark">
+                    <thead>
                         <tr>
                             <th class="ps-4">No</th>
                             <th>Nama</th>
                             <th>Slug</th>
-                            <th>Aksi</th>
+                            <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($categories as $i => $item): ?>
+                        <?php if (empty($categories)): ?>
                         <tr>
-                            <td class="ps-4"><?= $i + 1 ?></td>
-                            <td><?= esc($item['name']) ?></td>
-                            <td><span class="badge bg-secondary"><?= esc($item['slug']) ?></span></td>
-                            <td>
-                            <a href="/admin/categories/edit/<?= $item['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="/admin/categories/delete/<?= $item['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">Hapus</a>                            </td>
+                            <td colspan="4" class="text-center py-4 text-muted">Belum ada kategori data.</td>
                         </tr>
-                        <?php endforeach; ?>
+                        <?php else: ?>
+                            <?php foreach ($categories as $i => $item): ?>
+                            <tr>
+                                <td class="ps-4 fw-semibold"><?= $i + 1 ?></td>
+                                <td><?= esc($item['name']) ?></td>
+                                <td><span class="badge px-3 py-2" style="background-color: var(--shopease-pink);"><?= esc($item['slug']) ?></span></td>
+                                <td class="text-center">
+                                    <a href="/admin/categories/edit/<?= $item['id'] ?>" class="btn btn-sm btn-warning text-white fw-bold px-3 me-1">Edit</a>
+                                    <a href="/admin/categories/delete/<?= $item['id'] ?>" class="btn btn-sm btn-danger fw-bold px-3" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">Hapus</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
 
-</body>
-</html>
+<?= $this->endSection() ?>

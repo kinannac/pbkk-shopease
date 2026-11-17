@@ -1,0 +1,87 @@
+/* ==========================================================================
+   ShopEase - Enhanced Glassmorphism (Pink & Deep Forest Green Theme)
+   ========================================================================== */
+
+:root {
+    --shopease-pink: #FF788D;
+    --shopease-pink-light: #FFDADA;
+    --shopease-bg: #FFF2F2;
+    --shopease-green: #165823;
+    --shopease-green-hover: #0f3d18;
+}
+
+body {
+    background-color: var(--shopease-bg);
+    /* Memberikan latar belakang gradasi halus agar efek kaca buramnya terlihat kontras */
+    background-image: 
+        radial-gradient(at 10% 20%, rgba(255, 120, 141, 0.25) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(22, 88, 35, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: #333333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Card yang Lebih Tebal & Bertekstur */
+.glass-card {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 15px 35px 0 rgba(255, 120, 141, 0.15),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+    border-radius: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px 0 rgba(255, 120, 141, 0.25),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Glassmorphism Navbar */
+.glass-nav {
+    background: rgba(22, 88, 35, 0.8) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Buttons matching the theme */
+.btn-primary {
+    background-color: var(--shopease-pink) !important;
+    border-color: var(--shopease-pink) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(255, 120, 141, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: #e06579 !important;
+    border-color: #e06579 !important;
+    box-shadow: 0 6px 20px rgba(255, 120, 141, 0.6);
+}
+
+.btn-success {
+    background-color: var(--shopease-green) !important;
+    border-color: var(--shopease-green) !important;
+    box-shadow: 0 4px 15px rgba(22, 88, 35, 0.3);
+}
+
+.btn-success:hover {
+    background-color: var(--shopease-green-hover) !important;
+    border-color: var(--shopease-green-hover) !important;
+}
+
+/* Hero Section dengan Efek Kaca Menyeluruh */
+.hero-glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px 0 rgba(22, 88, 35, 0.08);
+}

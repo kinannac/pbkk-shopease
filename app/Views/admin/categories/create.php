@@ -9,7 +9,7 @@
 
     <nav class="navbar navbar-dark bg-dark mb-4">
         <div class="container">
-            <a class="navbar-brand" href="/admin/categories">⚙️ ShopEase Admin</a>
+            <a class="navbar-brand" href="/admin/categories">ShopEase Admin</a>
         </div>
     </nav>
 
@@ -22,7 +22,6 @@
                     </div>
                     <div class="card-body">
                         
-                        <!-- Menampilkan Error Validasi jika ada -->
                         <?php if(session()->has('errors')): ?>
                             <div class="alert alert-danger">
                                 <?php foreach(session('errors') as $error): ?>
